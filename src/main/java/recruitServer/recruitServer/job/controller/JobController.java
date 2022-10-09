@@ -55,7 +55,7 @@ public class JobController {
     }
 
     /*
-    현재 객체를 함께 보냄.
+    현재 유저를 함께 보냄.
     뷰단에서 받은 job json데이터의 writer와 currentUser가 같은지 판별하여
     수정 버튼 보여주기
      */

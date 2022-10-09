@@ -14,16 +14,26 @@
 * title, content, position, writer, company, duty, volunteer
 #### Resume - mypage
 * intro(소개), location(위치), user, skill
-* 작성자 이름으로 들고와서 id없으면 생성, 있으면 수정하기.
-#### Apply - mypage, job-detail
+* 작성자 이름으로 들고와서 _없으면 생성_, 있으면 json 뿌리기.
+#### Apply - mypage, applyList in job-detail
 * user, jobId
 * 마이페이지에서는 지원자 이름으로 mypage에 뿌려줌
-* job-detail에서는 jobId로 뿌려줌
+* applyList 에서는 jobId로 뿌려줌
 * 회사, 직무(duty) 는 jobId로 가져옴
 * 지원을 하게 되면 지원자와 해당 게시글의 id 저장됨.
 * 지원자 수(volunteer) 업데이트.
 
-## api 설계
+## api 설계(user 생략)
+#### job
+* /job - get, 페이징
+* /job/post - get/post
+* /job/{id} - get, map으로 현재 유저도 같이 json으로 보냄
+* /job/edit/{id} - get/post
+* /job/search - get, 페이징, 파라미터로 키워드 입력받음, 지원자 수 순으로 정렬
+#### resume
+* mypage - get, 이력서가 존재하지 않는다면 이력서 생성 창으로 리다이렉트, 아니면 이력서 json send
+* /resume/post - get/post
+* /resume/edit - get/post
 
 ## json test body
 #### users - signup
@@ -41,6 +51,21 @@
     "position" : "신입",
     "company" : "naver",
     "duty" : "백엔드"
+}
+</pre>
+#### resume - post/edit
+<pre>
+- post -
+{
+    "intro" : "resume",
+    "location" : "seoul",
+    "skill" : "backend, jpa"
+}
+- edit -
+{
+    "intro" : "updated resume",
+    "location" : "seoul",
+    "skill" : "backend, jpa"
 }
 </pre>
 
