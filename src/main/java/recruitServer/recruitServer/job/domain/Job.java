@@ -14,6 +14,7 @@ public class Job {  //채용 공고
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "job_id")
     private Long id;
 
     private String title;

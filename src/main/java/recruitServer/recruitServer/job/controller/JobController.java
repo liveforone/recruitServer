@@ -57,7 +57,9 @@ public class JobController {
     /*
     현재 유저를 함께 보냄.
     뷰단에서 받은 job json데이터의 writer와 currentUser가 같은지 판별하여
-    수정 버튼 보여주기
+    수정 버튼 보여주기.
+    또한 writer와 currentUser가 같은지 판별하여 구직 신청자 리스트 보여주기.
+    여기에서 apply, 즉 구직버튼을 클릭함.
      */
     @GetMapping("/job/{id}")
     public ResponseEntity<Map<String, Object>> jobDetail(
